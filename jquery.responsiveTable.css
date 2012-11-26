@@ -1,5 +1,7 @@
 /**
-Copyright (c) 2012 Marco Pegoraro, http://movableapp.com/
+Copyright (c) 2012 Nick Burwell, http://nickburwell.com
+
+Based on work by Marco Pegoraro, http://movableapp.com/
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -20,17 +22,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
-WHERE TO FIND MEDIA TABLE:
-https://github.com/thepeg/MediaTable
-http://consulenza-web.com/jquery/MediaTable/
-http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
-
 **/
-
-
-
-
 
 
 
@@ -40,21 +32,21 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 /**
  * Structural Style
  */
-.mediaTable {
+.responsiveTable {
 	width:100%;
 	border-collapse:collapse;
 }
 
-.mediaTableWrapper {
+.responsiveTableWrapper {
 	position: relative;
 }
 
-.mediaTableWrapperWithMenu {
+.responsiveTableWrapperWithMenu {
 	padding-top:3em;
 }
 
 
-.mediaTableMenuClosed ul {
+.responsiveTableMenuClosed ul {
 	display:none;
 }
 
@@ -65,17 +57,17 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
  * theese rules are applied to a table activated by the jQuery plugin.
  */
 
-.activeMediaTable th, .activeMediaTable td {
+.activeResponsiveTable th, .activeResponsiveTable td {
 	display: none;
 }
 
-.activeMediaTable th.essential, .activeMediaTable td.essential {
+.activeResponsiveTable th.essential, .activeResponsiveTable td.essential {
 	display: table-cell;
 	_display:block; /* IE6 Hack */
 }
 
 /* IE7 Hack */
-*+html .activeMediaTable th.essential, *+html .activeMediaTable td.essential { display:block }
+*+html .activeResponsiveTable th.essential, *+html .activeResponsiveTable td.essential { display:block }
 
 
 
@@ -88,25 +80,25 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 
 @media screen and (min-width: 768px) {
 	
-	.activeMediaTable th.optional, .activeMediaTable td.optional {
+	.activeResponsiveTable th.optional, .activeResponsiveTable td.optional {
 		display: table-cell;
 		_display:block; /* IE6 Hack */
 	}
 	
 	/* IE7 Hack */
-	*+html .activeMediaTable th.optional, *+html .activeMediaTable td.optional { display:block }
+	*+html .activeResponsiveTable th.optional, *+html .activeResponsiveTable td.optional { display:block }
 	
 }
 
 @media screen and (min-width: 1024px) {
 	
-	.activeMediaTable th, .activeMediaTable td {
+	.activeResponsiveTable th, .activeResponsiveTable td {
 		display: table-cell;
 		_display:block; /* IE6 Hack */
 	}
 	
 	/* IE7 Hack */
-	*+html .activeMediaTable th, *+html .activeMediaTable td { display:block }
+	*+html .activeResponsiveTable th, *+html .activeResponsiveTable td { display:block }
 	
 }
 
@@ -122,22 +114,21 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 /**
  * Table Style
  */
-table.mediaTable thead th {
-	white-space: nowrap;
+table.responsiveTable thead th {
 	border-bottom: 1px solid #ccc;
 	color: #888;
 }
 
-table.mediaTable th, table.mediaTable td {
+table.responsiveTable th, table.responsiveTable td {
 	padding: .5em 1em;
 	text-align: right;
 }
 
-table.mediaTable th:first-child, table.mediaTable td:first-child {
+table.responsiveTable th:first-child, table.responsiveTable td:first-child {
 	text-align: left;
 }
 
-table.mediaTable tbody th, table.mediaTable td {
+table.responsiveTable tbody th, table.responsiveTable td {
 	border-bottom: 1px solid #e6e6e6;
 }
 
@@ -146,7 +137,7 @@ table.mediaTable tbody th, table.mediaTable td {
  * Menu Style
  */
 
-.mediaTableMenu {
+.responsiveTableMenu {
 	position:absolute;
 	top:0;
 	right:0;
@@ -159,7 +150,7 @@ table.mediaTable tbody th, table.mediaTable td {
 	
 }
 
-.mediaTableMenu a {
+.responsiveTableMenu a {
 	display: block;
 	background: #ddd;
 	padding:0.5em;
@@ -174,22 +165,22 @@ table.mediaTable tbody th, table.mediaTable td {
 	
 }
 
-.mediaTableMenu ul {
+.responsiveTableMenu ul {
 	list-style-position:outside;
 	list-style:none;
 	margin:0;
 	padding:0 0.5em;
 }
 
-.mediaTableMenuClosed a {
+.responsiveTableMenuClosed a {
 	border-radius:5px;
 }
 
-.mediaTableMenu ul li {
+.responsiveTableMenu ul li {
 	line-height: 2em;
 }
 
-.mediaTableMenu ul li label {
+.responsiveTableMenu ul li label {
 	cursor:pointer;
 }
 

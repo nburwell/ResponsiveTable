@@ -1,5 +1,7 @@
 /**
-Copyright (c) 2012 Marco Pegoraro, http://movableapp.com/
+Copyright (c) 2012 Nick Burwell, http://nickburwell.com
+
+Based on work by Marco Pegoraro, http://movableapp.com/
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -21,18 +23,8 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-WHERE TO FIND MEDIA TABLE:
-https://github.com/thepeg/MediaTable
-http://consulenza-web.com/jquery/MediaTable/
-http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
-
 **/
 
-
-/**
- * jQuery Bacheca
- * Plugin Dimostrativo
- */
 
 ;(function($){
 	
@@ -44,7 +36,7 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 	var __loop = function( cfg, i ) {
 		
 		var $this 	= $(this),
-			wdg 	= $this.data( 'MediaTable' );
+			wdg 	= $this.data( 'ResponsiveTable' );
 		
 		// Prevent re-initialization of the widget!
 		if ( !$.isEmptyObject(wdg) ) return;
@@ -52,7 +44,7 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 		// Build the widget context.
 		wdg = {
 			$wrap:		$('<div>'),		// Refer to the main content of the widget
-			$table:		$this,			// Refer to the MediaTable DOM (TABLE TAG)
+			$table:		$this,			// Refer to the ResponsiveTable DOM (TABLE TAG)
 			$menu:		false,			// Refer to the column's toggler menu container
 			cfg:		cfg,			// widget local configuration object
 			id:			$this.attr('id')
@@ -60,19 +52,19 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 		
 		// Setup Widget ID if not specified into DOM Table.
 		if ( !wdg.id ) {
-			wdg.id = 'MediaTable-' + i;
+			wdg.id = 'ResponsiveTable-' + i;
 			wdg.$table.attr( 'id', wdg.id );
 		}
 		
 		
 		
-		// Activate the MediaTable.
-		wdg.$table.addClass('activeMediaTable');
+		// Activate the ResponsiveTable.
+		wdg.$table.addClass('activeResponsiveTable');
 		
 		// Create the wrapper.
-		wdg.$wrap.addClass('mediaTableWrapper');
+		wdg.$wrap.addClass('responsiveTableWrapper');
 		
-		// Place the wrapper near the table and fill with MediaTable.
+		// Place the wrapper near the table and fill with ResponsiveTable.
 		wdg.$table.before(wdg.$wrap).appendTo(wdg.$wrap);
 		
 		
@@ -86,7 +78,7 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 		
 		
 		// Save widget context into table DOM.
-		wdg.$table.data( 'MediaTable', wdg );
+		wdg.$table.data( 'ResponsiveTable', wdg );
 		
 	}; // EndOf: "__loop()" ###
 	
@@ -100,13 +92,13 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 			
 			// Setup menu general properties and append to DOM.
 			wdg.$menu
-				.addClass('mediaTableMenu')
-				.addClass('mediaTableMenuClosed')
+				.addClass('responsiveTableMenu')
+				.addClass('responsiveTableMenuClosed')
 				.append(wdg.$menu.$header)
 				.append(wdg.$menu.$list);
 			
 			// Add a class to the wrapper to inform about menu presence.
-			wdg.$wrap.addClass('mediaTableWrapperWithMenu');
+			wdg.$wrap.addClass('responsiveTableWrapperWithMenu');
 			
 			// Setup menu title (handler)
 			wdg.$menu.$header.text(wdg.cfg.menuTitle);
@@ -119,16 +111,16 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 			
 			// Toggle list visibility when clicking the menu title.
 			wdg.$menu.$header.bind('click',function(){
-				wdg.$menu.toggleClass('mediaTableMenuClosed');
+				wdg.$menu.toggleClass('responsiveTableMenuClosed');
 			});
 			
 			wdg.$table.click(function() {
-                wdg.$menu.addClass('mediaTableMenuClosed');
+                wdg.$menu.addClass('responsiveTableMenuClosed');
             });
 			
 			// Toggle list visibilty when mouse go outside the list itself.
 			wdg.$menu.$list.bind('mouseleave',function(e){
-				wdg.$menu.toggleClass('mediaTableMenuClosed');
+				wdg.$menu.toggleClass('responsiveTableMenuClosed');
 				e.stopPropagation();
 			});
 			
@@ -145,7 +137,7 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 			// Set up an auto-generated ID for the column.
 			// the ID is based upon widget's ID to allow multiple tables into one page.
 			if ( !id ) {
-				id = wdg.id + '-mediaTableCol-' + i;
+				id = wdg.id + '-responsiveTableCol-' + i;
 				$th.attr( 'id', id );
 			}
 			
@@ -226,19 +218,19 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 	var __destroy = function() {
 		
 		// Get the widget context.
-		var wdg = $(this).data( 'MediaTable' );
+		var wdg = $(this).data( 'ResponsiveTable' );
 		if ( !wdg ) return;
 		
 		
-		// Remove the wrapper from the MediaTable.
+		// Remove the wrapper from the ResponsiveTable.
 		wdg.$wrap.after(wdg.$table).remove();
 		
-		// Remove MediaTable active class so media-query will not work.
-		wdg.$table.removeClass('activeMediaTable');
+		// Remove ResponsiveTable active class so media-query will not work.
+		wdg.$table.removeClass('activeResponsiveTable');
 		
 		
 		// Remove DOM reference to the widget context.
-		wdg.$table.data( 'MediaTable', null );
+		wdg.$table.data( 'ResponsiveTable', null );
 		
 	}; // EndOf: "__destroy()" ###
 	
@@ -251,7 +243,7 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 	/**
 	 * jQuery Extension
 	 */
-	$.fn.mediaTable = function() {
+	$.fn.responsiveTable = function() {
 		
 		var cfg = false;
 		
@@ -287,7 +279,7 @@ http://www.consulenza-web.com/2012/01/mediatable-jquery-plugin/
 		// Mantengo la possibilitˆ di concatenare plugins.
 		return this;
 		
-	}; // EndOf: "$.fn.mediaTable()" ###
+	}; // EndOf: "$.fn.responsiveTable()" ###
 	
 	
 })( jQuery );
