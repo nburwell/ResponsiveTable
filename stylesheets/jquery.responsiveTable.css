@@ -70,11 +70,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 
-
-
-
-
-
 /* -----[[     B R E A C K      P O I N T S     ]]------------ */
 
 @media screen and (min-width: 768px) {
@@ -99,36 +94,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	/* IE7 Hack */
 	*+html .activeResponsiveTable th, *+html .activeResponsiveTable td { display:block }
 	
-}
-
-
-
-
-
-
-
-
-/* -----[[     T H E M I N G     ]]------------ */
-
-/**
- * Table Style
- */
-table.responsiveTable thead th {
-	border-bottom: 1px solid #ccc;
-	color: #888;
-}
-
-table.responsiveTable th, table.responsiveTable td {
-	padding: .5em 1em;
-	text-align: right;
-}
-
-table.responsiveTable th:first-child, table.responsiveTable td:first-child {
-	text-align: left;
-}
-
-table.responsiveTable tbody th, table.responsiveTable td {
-	border-bottom: 1px solid #e6e6e6;
 }
 
 
@@ -182,9 +147,3 @@ table.responsiveTable tbody th, table.responsiveTable td {
 .responsiveTableMenu ul li label {
 	cursor:pointer;
 }
-
-
-
-
-
-

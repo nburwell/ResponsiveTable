@@ -1,0 +1,17 @@
+table thead th {
+	border-bottom: 1px solid #ccc;
+	color: #888;
+}
+
+table th, table td {
+	padding: .5em 1em;
+	text-align: right;
+}
+
+table th:first-child, table td:first-child {
+	text-align: left;
+}
+
+table tbody th, table td {
+	border-bottom: 1px solid #e6e6e6;
+}
