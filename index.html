@@ -57,9 +57,11 @@
       <section id="main_content" class="inner">
         <h3>What is it?</h3>
 
-<p>Table listens to screen size to define visible or hidden columns using <strong>CSS media query</strong>. You choose what columns to view on smaller screens using classes.</p>
+<p>A jQuery plugin that enables tables to dynamically hide columns based on the window size, using <strong>CSS media query</strong>. In the markup you specify what are the important columns, and which ones are optional.  The important ones stay visible for smaller screen sizes.  A column picker shows up above the table to allow the user to show specific columns. Inspired by this <a href="http://filamentgroup.com/lab/responsive_design_approach_for_complex_multicolumn_data_tables/">responsive design blog post</a>.</p>
 
 <h3>Example</h3>
+
+<p>Resize the browser window and watch columns show/hide. Also try using the "Columns" control on the far right.</p>
 
 <table class="responsiveTable">
 <thead>
@@ -80,7 +82,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Marco Pegoraro</td>
+<td>John Doe</td>
                     <td class="yes">y</td>
                     <td class="yes">y</td>
                     <td class="yes">y</td>
@@ -94,7 +96,7 @@
                     <td class="yes">y</td>
                 </tr>
 <tr>
-<td>Mario Rossi</td>
+<td>Jane Doe</td>
                     <td class="yes">y</td>
                     <td class="yes">y</td>
                     <td class="no">n</td>
@@ -108,7 +110,7 @@
                     <td class="no">n</td>
                 </tr>
 <tr>
-<td>Alberto Bianchi</td>
+<td>Bob Doe</td>
                     <td class="no">n</td>
                     <td class="no">n</td>
                     <td class="yes">y</td>
