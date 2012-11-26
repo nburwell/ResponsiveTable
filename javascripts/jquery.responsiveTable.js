@@ -34,8 +34,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 	
 	var __loop = function( cfg, i ) {
 		
-		var $this 	= $(this),
-			wdg 	= $this.data( 'ResponsiveTable' );
+		var $this = $(this),
+		wdg       = $this.data( 'ResponsiveTable' );
 		
 		// Prevent re-initialization of the widget!
 		if ( !$.isEmptyObject(wdg) ) return;
@@ -70,12 +70,15 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		// Menu initialization logic.
 		if ( wdg.cfg.menu ) __initMenu( wdg );
 		
-		// Columns Initialization Loop.
-		wdg.$table.find('thead th').each(function(i){	__thInit.call( this, i, wdg );	});
+		wdg.refresh = function()
+		{
+		  // Columns Initialization Loop.
+		  console.log( "this is it" )
+		  this.$table.find('thead th').each(function(i){	__thInit.call( this, i, wdg );	});
+		}
 		
-		
-		
-		
+		wdg.refresh();
+
 		// Save widget context into table DOM.
 		wdg.$table.data( 'ResponsiveTable', wdg );
 		

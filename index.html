@@ -26,168 +26,111 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-		
-		<title>ResponsiveTable | Responsive Table | Plugin jQuery | www.consulenza-web.com</title>
-		<meta name="description" content="jQUery Plugin Media Table: adapt HTML tables to fit many screen sizes. Uses media-query and javascript. IE proof!" />
-		
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		
-		
-		<!-- ResponsiveTable Plugin -->
-		<!-- This is all you need to copy in your page! -->
-		<link rel="stylesheet" href="stylesheets/jquery.responsiveTable.css" />
-		<link rel="stylesheet" href="stylesheets/table.css" />
-		<script src="javascripts/jquery.responsiveTable.js"></script>
-		
-		<!-- Functional Script: this activate/deactivate ResponsiveTable -->
-		<script type="text/javascript">
-		$(document).ready(function(){
-			
-			$('#create').click(function(){      $('.responsiveTable').responsiveTable()     });
-			$('#destroy').click(function(){     $('.responsiveTable').responsiveTable('destroy')     });
-			
-			$('.article a').click(function(e){
-				e.preventDefault();
-				$($(this).attr('href')).trigger('click');
-			});
-			
-		});
-		</script>
-		
-		<!-- Page Style, don't care about this code -->
-		<style type="text/css">
-		html { text-align:center; background: #fff; font-family: "Trebuchet MS"; font-size:1em; }
-		body { display:block; width:95%; margin:2em auto; text-align:left; }
-		a { color:#0063c5}
-		h1,h2 { margin:0; font-weight:normal; }
-		h2 { font-size:1em; margin-bottom:2em; }
-		.article { border-top:1px solid #444;border-bottom:1px solid #444;margin-bottom:2em;font-size:0.85em;line-height: 1.3em; color:#333; padding:0;}
-		.controls { text-align: center;margin-bottom:2em;}
-		.controls input { font-size:1em; padding:0.5em; }
-		#create { color:green }
-		#destroy { color:#900 }
-		.credits { margin-top:3em;text-align: center;font-size:0.8em; background: #ddd; text-shadow: 0 1px 0 #fff; padding:0.2em; }
-		.ResponsiveTable { font-size:0.8em;}
-		</style>
-		
-		<!--[if lt IE 9]>
-		<script src="respond.min.js"></script>
-		<![endif]-->
-		
-	</head>
-	<body>
-		
-		
-		<h1>ResponsiveTable</h1>
-		<h2>jQuery Plugin</h2>
-		
-		<div class="article">
-			
-			<h3>What does this plugin do?</h3>
-			
-			<p>
-				<strong>ResponsiveTable</strong> listens to screen size to define visible or hidden columns using <strong>CSS media querys</strong>.<br>
-				The author specifics what columns are visible by default on smaller screens, and the user can choose what columns to view on smaller screens with the automatic columns menu.
-			</p>
-			<p>
-				This is a responsive solution to display <strong>data tables into small screen devices</strong>.
-			</p>
-			
-			<h3>How do I use this demo?</h3>
-			
-			<ol>
-				<li>Look at the number of colums displayed in the table below</li>
-				<li>Click on <a href="#create">Enable ResponsiveTable</a> to startup the widget</li>
-				<li>Look at the menu generated upon the table. You can choose what columns to display</li>
-				<li><strong>Resize the window</strong> (or change orientation on iPad) to see how table changes</li>
-				<li>Click on <a href="#destroy">Disable ResponsiveTable</a> to completely remove the widget form the table</li>
-			</ol>
-			
-		</div>
-		
-		
-		<!-- Example Controls -->
-		<div class="controls">
-			<input id="create" type="button" value="Enable ResponsiveTable" />
-			<input id="destroy" type="button" value="Disable ResponsiveTable" />
-		</div>
-		
-		
-		
-		<!-- Example Data Table -->
-		<table class="responsiveTable">
-			<thead>
-				<tr>
-					<th class="essential persist">Employee</th>
-					<th class="essential">xHTML</th>
-					<th class="optional">HTML5</th>
-					<th class="essential">CSS</th>
-					<th class="essential">JS</th>
-					<th class="optional">jQuery</th>
-					<th class="optional">jQueryUI</th>
-					<th>jQuery Mobile</th>
-					<th>Sencha Touch</th>
-					<th class="essential">PHP</th>
-					<th>PHP (OO)</th>
-					<th class="optional">CakePHP</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Marco Pegoraro</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-				</tr>
-				<tr>
-					<td>Mario Rossi</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="no">n</td>
-					<td class="yes">y</td>
-					<td class="no">n</td>
-					<td class="no">n</td>
-					<td class="no">n</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="yes">y</td>
-					<td class="no">n</td>
-				</tr>
-				<tr>
-					<td>Alberto Bianchi</td>
-					<td class="no">n</td>
-					<td class="no">n</td>
-					<td class="yes">y</td>
-					<td class="no">n</td>
-					<td class="no">n</td>
-					<td class="no">n</td>
-					<td class="no">n</td>
-					<td class="no">n</td>
-					<td class="no">n</td>
-					<td class="no">n</td>
-					<td class="no">n</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		
-		
-		<div class="credits">
-			<p><a href="http://www.nickburwell.com/">Nick Burwell</a>. Original work by <a href="http://consulenza-web.com" title="Marco Pegoraro Personal Blog" target="_blank">Marco Pegoraro</a>, Based upon a <a href="http://filamentgroup.com/lab/responsive_design_approach_for_complex_multicolumn_data_tables/" target="_blank">Filament Group</a> article | Fork on <a href="https://github.com/nburwell/ResponsiveTable" target="_blank">GitHub</a></p>
-		</div>
-		
-				
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    
+    <title>ResponsiveTable | Responsive Table | Plugin jQuery | www.consulenza-web.com</title>
+    <meta name="description" content="jQUery Plugin Media Table: adapt HTML tables to fit many screen sizes. Uses media-query and javascript. IE proof!" />
+    
+    <link rel="stylesheet" href="stylesheets/jquery.responsiveTable.css" />
+    <link rel="stylesheet" href="stylesheets/table.css" />
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/jquery.responsiveTable.js"></script>
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.responsiveTable').responsiveTable();
+      });
+    </script>
+    
+    <!--[if lt IE 9]>
+    <script src="respond.min.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+    
+    <h1>ResponsiveTable</h1>
+    <h2>jQuery Plugin</h2>
+      
+    <h3>What is it?</h3>
+
+      <p>A jQuery plugin that enables tables to dynamically hide columns based on the window size, using <strong>CSS media query</strong>. In the markup you specify what are the important columns, and which ones are optional.  The important ones stay visible for smaller screen sizes.  A column picker shows up above the table to allow the user to show specific columns. Inspired by this <a href="http://filamentgroup.com/lab/responsive_design_approach_for_complex_multicolumn_data_tables/">responsive design blog post</a>.</p>
+
+      <h3>Example</h3>
+
+      <p>Resize the browser window and watch columns show/hide. Also try using the "Columns" control on the far right.</p>
+
+      <table class="responsiveTable">
+      <thead>
+        <tr>
+          <th class="essential persist">Employee</th>
+          <th class="essential">xHTML</th>
+          <th class="optional">HTML5</th>
+          <th class="essential">CSS</th>
+          <th class="essential">JS</th>
+          <th class="optional">jQuery</th>
+          <th class="optional">jQueryUI</th>
+          <th>jQuery Mobile</th>
+          <th>Sencha Touch</th>
+          <th class="essential">PHP</th>
+          <th>PHP (OO)</th>
+          <th class="optional">CakePHP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+        </tr>
+        <tr>
+          <td>Jane Doe</td>
+          <td class="yes">y</td>
+          <td class="yes">y</td>
+          <td class="no">n</td>
+          <td class="yes">y</td>
+          <td class="no">n</td>
+          <td class="no">n</td>
+          <td class="no">n</td>
+          <td class="yes">y</td>
+          <td class="yes">y</td>
+          <td class="yes">y</td>
+          <td class="no">n</td>
+      </tr>
+      <tr>
+        <td>Bob Doe</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="yes">y</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+      </tr>
+    </tbody>
+    </table>
+
+    <div class="credits" style="margin-top: 3em">
+      <p><a href="http://www.nickburwell.com/">Nick Burwell</a>. Original work by <a href="http://consulenza-web.com" title="Marco Pegoraro Personal Blog" target="_blank">Marco Pegoraro</a>, Based upon a <a href="http://filamentgroup.com/lab/responsive_design_approach_for_complex_multicolumn_data_tables/" target="_blank">Filament Group</a> article | Fork on <a href="https://github.com/nburwell/ResponsiveTable" target="_blank">GitHub</a></p>
+    </div>
+    
+        
+  </body>
 </html>
