@@ -7,7 +7,7 @@
 
 Use a normal table with added markup in the head row.
 
-```
+```html
 <table class="responsive-table">
   <thead>
     <tr>
@@ -39,10 +39,10 @@ Use a normal table with added markup in the head row.
 
 Enable the plugin on the table(s)
 
-```
+```javascript
 <script type="text/javascript">
-    $(document).ready(function() {
-      $('.responsive-table').responsiveTable();
-    });
-    </script>
+  $(document).ready(function() {
+    $('.responsive-table').responsiveTable();
+  });
+</script>
 ```
