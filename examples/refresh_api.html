@@ -1,28 +1,6 @@
 <!--
 
 Copyright (c) 2012 Nick Burwell, http://nickburwell.com
-
-Based on work by Marco Pegoraro, http://movableapp.com/
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -31,19 +9,28 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     
-    <title>ResponsiveTable | Responsive Table | Plugin jQuery | www.consulenza-web.com</title>
+    <title>Refresh API | Responsive Table | Plugin jQuery</title>
     <meta name="description" content="jQUery Plugin Media Table: adapt HTML tables to fit many screen sizes. Uses media-query and javascript. IE proof!" />
     
-    <link rel="stylesheet" href="stylesheets/jquery.responsiveTable.css" />
-    <link rel="stylesheet" href="stylesheets/table.css" />
+    <link rel="stylesheet" href="../stylesheets/jquery.responsiveTable.css" />
+    <link rel="stylesheet" href="../stylesheets/table.css" />
     
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/jquery.responsiveTable.js"></script>
+    <script src="../javascripts/jquery.responsiveTable.js"></script>
     
     <script type="text/javascript">
+      var responsive_apis = [];
+      
       $(document).ready(function() {
-        $('.responsiveTable').responsiveTable();
+        $('.responsiveTable').responsiveTable().each( function() { responsive_apis.push( jQuery(this).data("ResponsiveTable") ) } );
       });
+      
+      // on some event
+      function tableChanged() {
+        for( var i = 0; i < responsive_apis.length; i++ ) {
+          responsive_apis[i].refresh();
+        }
+      }
     </script>
     
     <!--[if lt IE 9]>
@@ -56,13 +43,17 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <h1>ResponsiveTable</h1>
     <h2>jQuery Plugin</h2>
       
-    <h3>What is it?</h3>
+    <h3>Refresh API example</h3>
 
-      <p>A jQuery plugin that enables tables to dynamically hide columns based on the window size, using <strong>CSS media query</strong>. In the markup you specify what are the important columns, and which ones are optional.  The important ones stay visible for smaller screen sizes.  A column picker shows up above the table to allow the user to show specific columns. Inspired by this <a href="http://filamentgroup.com/lab/responsive_design_approach_for_complex_multicolumn_data_tables/">responsive design blog post</a>.</p>
-
-      <h3>Main Example</h3>
-
-      <p>Resize the browser window and watch columns show/hide. Also try using the "Columns" control on the far right.</p>
+      <p>
+        <button onclick='jQuery("td.optional, td.essential").removeClass("optional").removeClass("essential")'>Remove classes</button>
+        Remove all 'essential' and 'optional' classes, simulating the table has been refreshed, perhaps via a paging plugin. (Test it by shrinking browser; all data rows should be missing)
+      </p>
+         
+      <p>
+        <button onclick='tableChanged()'>Refresh tables</button>
+        Call API to refresh tables (now data rows should be back and work as before)
+      </p>
 
       <table class="responsiveTable">
       <thead>
@@ -127,12 +118,69 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     </tbody>
     </table>
 
-<h3>Other examples</h3>
 
-<ul>
-  <li><a href="examples/refresh_api.html">Refresh API</a></li>
-</ul>
-
+      <table class="responsiveTable">
+      <thead>
+        <tr>
+          <th class="essential persist">Employee</th>
+          <th class="essential">xHTML</th>
+          <th class="optional">HTML5</th>
+          <th class="essential">CSS</th>
+          <th class="essential">JS</th>
+          <th class="optional">jQuery</th>
+          <th class="optional">jQueryUI</th>
+          <th>jQuery Mobile</th>
+          <th>Sencha Touch</th>
+          <th class="essential">PHP</th>
+          <th>PHP (OO)</th>
+          <th class="optional">CakePHP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe 2</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+            <td class="yes">y</td>
+        </tr>
+        <tr>
+          <td>Jane Doe 2</td>
+          <td class="yes">y</td>
+          <td class="yes">y</td>
+          <td class="no">n</td>
+          <td class="yes">y</td>
+          <td class="no">n</td>
+          <td class="no">n</td>
+          <td class="no">n</td>
+          <td class="yes">y</td>
+          <td class="yes">y</td>
+          <td class="yes">y</td>
+          <td class="no">n</td>
+      </tr>
+      <tr>
+        <td>Bob Doe 2</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="yes">y</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+        <td class="no">n</td>
+      </tr>
+    </tbody>
+    </table>
 
     <div class="credits" style="margin-top: 3em">
       <p><a href="http://www.nickburwell.com/">Nick Burwell</a>. Original work by <a href="http://consulenza-web.com" title="Marco Pegoraro Personal Blog" target="_blank">Marco Pegoraro</a>, Based upon a <a href="http://filamentgroup.com/lab/responsive_design_approach_for_complex_multicolumn_data_tables/" target="_blank">Filament Group</a> article | Fork on <a href="https://github.com/nburwell/ResponsiveTable" target="_blank">GitHub</a></p>
