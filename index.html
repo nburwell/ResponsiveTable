@@ -5,9 +5,21 @@
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="ResponsiveTable : jQuery Plugin :: Responsive tables automatically" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="https://raw.github.com/nburwell/ResponsiveTable/master/jquery.responsiveTable.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://raw.github.com/nburwell/ResponsiveTable/master/jquery.responsiveTable.js"></script>
+    
+    <!-- Functional Script: this activate/deactivate ResponsiveTable -->
+    <script type="text/javascript">
+      $(document).ready(function(){      
+        $('.responsiveTable').responsiveTable();
+      });
+    </script>
 
     <title>ResponsiveTable</title>
   </head>
@@ -38,7 +50,7 @@
 
 <h3>Example</h3>
 
-<table>
+<table class="responsiveTable">
 <tr>
 <th class="essential persist">Employee</th>
                     <th class="essential">xHTML</th>
