@@ -103,7 +103,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       wdg.$wrap.addClass('responsiveTableWrapperWithMenu');
       
       // Setup menu title (handler)
-      wdg.$menu.$header.text(wdg.cfg.menuTitle);
+      wdg.$menu.$header.html("<div class='responsiveTableArrow responsiveTableIcon'></div><div class='responsiveTableIconText'>" + wdg.cfg.menuTitle + "</div><div style='clear: left'></div>");
       wdg.$table.before(wdg.$menu);
       
       // Bind screen change events to update checkbox status of displayed fields.
@@ -116,16 +116,16 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         wdg.$menu.toggleClass('responsiveTableMenuClosed');
       });
       
-      wdg.$table.click(function() {
-                wdg.$menu.addClass('responsiveTableMenuClosed');
-            });
-      
-      // Toggle list visibilty when mouse go outside the list itself.
-      wdg.$menu.$list.bind('mouseleave',function(e){
-        wdg.$menu.toggleClass('responsiveTableMenuClosed');
-        e.stopPropagation();
-      });
-      
+      // Toggle list visibilty when mouse clicks outside the list itself.
+      //   And when esc is pressed
+      $(document).bind('click', function(e){
+        console.log('click')
+        console.log(e.target);
+        console.log(wdg.$menu)
+        if (wdg.$menu.has(e.target).length === 0) {
+          wdg.$menu.addClass('responsiveTableMenuClosed');
+        }
+      });      
       
       
     }; // EndOf: "__initMenu()" ###
@@ -254,7 +254,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       
       // Teach the widget to create a toggle menu to declare column's visibility
       menu:   true,
-      menuTitle:  'Columns:',
+      menuTitle:  'Display',
       
     t:'e'},arguments[0]);
     // -- default configuration block --
