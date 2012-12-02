@@ -36,10 +36,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   border-collapse:collapse;
 }
 
-.responsiveTableWrapper {
-  position: relative;
-}
-
 .responsiveTableWrapperWithMenu {
   padding-top:3em;
 }
