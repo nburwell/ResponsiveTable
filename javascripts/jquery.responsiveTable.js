@@ -73,7 +73,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     wdg.refresh = function()
     {
       // Columns Initialization Loop.
-      console.log( "this is it" )
       this.$table.find('thead th').each(function(i){  __thInit.call( this, i, wdg );  });
     }
     
@@ -119,13 +118,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // Toggle list visibilty when mouse clicks outside the list itself.
       //   And when esc is pressed
       $(document).bind('click', function(e){
-        console.log('click')
-        console.log(e.target);
-        console.log(wdg.$menu)
         if (wdg.$menu.has(e.target).length === 0) {
           wdg.$menu.addClass('responsiveTableMenuClosed');
         }
-      });      
+      });
       
       
     }; // EndOf: "__initMenu()" ###
@@ -165,7 +161,15 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       
       $cell.attr( 'headers', id );
       
-      if ( classes ) $cell.addClass(classes);
+      if ( classes ) {
+        class_array = classes.split(' ');
+        classes = '';
+        for( var i = 0, len = class_array.length; i < len; ++i ) {
+          if (class_array[i] == 'persist' || class_array[i] == 'essential' || class_array[i] == 'optional')
+            classes += class_array[i] + ' ';
+        }
+        $cell.addClass(classes);
+      }
       
     }; // EndOf: "__trInit()" ###
     
