@@ -147,3 +147,22 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 .responsiveTableMenu ul li label {
   cursor:pointer;
 }
+
+.responsiveTableArrow {
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  
+  border-top: 7px solid #555;
+}
+
+.responsiveTableIcon {
+  float: left;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.responsiveTableIconText {
+  float: left;
+}
